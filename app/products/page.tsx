@@ -1,124 +1,126 @@
 'use client'
 
-import Link from 'next/link'
 import { useState } from 'react'
-import { ArrowLeft, ShoppingCart, Sun, Leaf } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { ShoppingCart, Plus, Minus } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import Link from 'next/link'
+import Navbar from '@/components/navbar'
 
-export default function ProductPage() {
-  const [selectedVariant, setSelectedVariant] = useState('standard')
+const products = [
+  {
+    id: 1,
+    name: 'ECO Gebutas Standard',
+    description: 'Genteng ramah lingkungan dari tebu dan kertas daur ulang',
+    price: 150000,
+    image: '/img/gebutas-standart.jpg'
+  },
+  {
+    id: 2,
+    name: 'ECO Gebutas Solar',
+    description: 'Genteng ramah lingkungan dengan panel surya terintegrasi',
+    price: 500000,
+    image: '/img/gebutas-solar.jpg'
+  },
+  // Add more products as needed
+]
 
-    const products: { [key: string]: { name: string; price: number; description: string; } } = {
-      standard: {
-        name: 'ECO Gebutas Standard',
-        price: 199.99,
-        description: 'Our eco-friendly roofing tile made from sustainable sugarcane and recycled paper.',
-      },
-      solar: {
-        name: 'ECO Gebutas Solar',
-        price: 299.99,
-        description: 'Our premium eco-friendly roofing tile with integrated solar panels for energy generation.',
-      },
-    };
+export default function ProductShowcase() {
+  const [cart, setCart] = useState<{id: number, quantity: number}[]>([])
 
-const selectedProduct = products[selectedVariant];
+  const addToCart = (productId: number) => {
+    setCart(prevCart => {
+      const existingItem = prevCart.find(item => item.id === productId)
+      if (existingItem) {
+        return prevCart.map(item =>
+          item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
+        )
+      }
+      return [...prevCart, { id: productId, quantity: 1 }]
+    })
+  }
+
+  const removeFromCart = (productId: number) => {
+    setCart(prevCart => {
+      const existingItem = prevCart.find(item => item.id === productId)
+      if (existingItem && existingItem.quantity > 1) {
+        return prevCart.map(item =>
+          item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
+        )
+      }
+      return prevCart.filter(item => item.id !== productId)
+    })
+  }
+
+  const getQuantity = (productId: number) => {
+    const item = cart.find(item => item.id === productId)
+    return item ? item.quantity : 0
+  }
+
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0)
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white px-16">
-      <header className="container mx-auto px-4 py-6 flex justify-between items-center">
-        <Link href="/" className="flex items-center space-x-2">
-          <Leaf className="h-8 w-8 text-green-600" />
-          <span className="text-2xl font-bold text-gray-900">ECO Gebutas</span>
+    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white p-8">
+      <Navbar />
+      <header className="mb-12 flex justify-between items-center">
+        <h1 className="text-4xl font-bold text-green-800">ECO Gebutas Produk</h1>
+        <Link href="/checkout" passHref>
+          <Button variant="outline" className="relative">
+            <ShoppingCart className="mr-2 h-5 w-5" />
+            Keranjang
+            {totalItems > 0 && (
+              <Badge variant="destructive" className="absolute -top-2 -right-2">
+                {totalItems}
+              </Badge>
+            )}
+          </Button>
         </Link>
-        <nav>
-          <ul className="flex space-x-6">
-            <li><Link href="/" className="text-gray-600 hover:text-gray-900">Home</Link></li>
-            <li><Link href="/#about" className="text-gray-600 hover:text-gray-900">About</Link></li>
-          </ul>
-        </nav>
       </header>
-
-      <main className="container mx-auto px-4 py-16">
-        <Link href="/" className="inline-flex items-center text-green-600 hover:text-green-700 mb-8">
-          <ArrowLeft className="mr-2 h-5 w-5" />
-          Back to Home
-        </Link>
-
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="bg-gray-200 rounded-lg aspect-square flex items-center justify-center">
-            <span className="text-gray-500">Product Image Placeholder</span>
-          </div>
-
-          <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">{selectedProduct.name}</h1>
-            <p className="text-2xl font-semibold text-green-600 mb-6">${selectedProduct.price.toFixed(2)}</p>
-            <p className="text-gray-600 mb-6">{selectedProduct.description}</p>
-
-            <div className="mb-6">
-              <label className="block text-gray-700 font-semibold mb-2">Select Variant:</label>
-              <div className="flex space-x-4">
-                <button
-                  onClick={() => setSelectedVariant('standard')}
-                  className={`px-4 py-2 rounded-full ${
-                    selectedVariant === 'standard'
-                      ? 'bg-green-600 text-white'
-                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                  }`}
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        {products.map((product) => (
+          <Card key={product.id} className="overflow-hidden">
+            <CardHeader className="p-0">
+              <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
+            </CardHeader>
+            <CardContent className="p-6">
+              <CardTitle className="text-xl mb-2">{product.name}</CardTitle>
+              <CardDescription>{product.description}</CardDescription>
+              <p className="mt-4 font-semibold text-lg">Rp {product.price.toLocaleString()}</p>
+            </CardContent>
+            <CardFooter className="flex justify-between items-center">
+              <div className="flex items-center space-x-2">
+                <Button 
+                  variant="outline" 
+                  size="icon"
+                  onClick={() => removeFromCart(product.id)}
+                  disabled={getQuantity(product.id) === 0}
                 >
-                  Standard
-                </button>
-                <button
-                  onClick={() => setSelectedVariant('solar')}
-                  className={`px-4 py-2 rounded-full ${
-                    selectedVariant === 'solar'
-                      ? 'bg-green-600 text-white'
-                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                  }`}
+                  <Minus className="h-4 w-4" />
+                </Button>
+                <span className="font-semibold">{getQuantity(product.id)}</span>
+                <Button 
+                  variant="outline" 
+                  size="icon"
+                  onClick={() => addToCart(product.id)}
                 >
-                  Solar
-                </button>
+                  <Plus className="h-4 w-4" />
+                </Button>
               </div>
-            </div>
-
-            <button className="w-full bg-green-600 text-white py-3 px-6 rounded-full text-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center">
-              <ShoppingCart className="mr-2 h-5 w-5" />
-              Add to Cart
-            </button>
-          </div>
-        </div>
-
-        <section className="mt-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Product Details</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Features</h3>
-              <ul className="list-disc list-inside text-gray-600 space-y-2">
-                <li>Made from sustainable sugarcane and recycled paper</li>
-                <li>Durable and weather-resistant</li>
-                <li>Easy installation</li>
-                <li>Reduces carbon footprint</li>
-                {selectedVariant === 'solar' && (
-                  <>
-                    <li>Integrated solar panels</li>
-                    <li>Generates clean electricity</li>
-                  </>
-                )}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Specifications</h3>
-              <ul className="text-gray-600 space-y-2">
-                <li><span className="font-semibold">Dimensions:</span> 30cm x 60cm</li>
-                <li><span className="font-semibold">Weight:</span> 2.5 kg per tile</li>
-                <li><span className="font-semibold">Material:</span> Sugarcane fiber, recycled paper</li>
-                {selectedVariant === 'solar' && (
-                  <li><span className="font-semibold">Solar Capacity:</span> 25W per tile</li>
-                )}
-              </ul>
-            </div>
-          </div>
-        </section>
-      </main>
-
+              <Button onClick={() => addToCart(product.id)}>
+                Tambah ke Keranjang
+              </Button>
+            </CardFooter>
+          </Card>
+        ))}
+      </motion.div>
     </div>
   )
 }
