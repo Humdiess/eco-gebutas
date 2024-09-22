@@ -85,7 +85,6 @@ export default function LandingPage() {
               secondImageClassname="object-cover object-left-top"
               className="h-full w-full md:h-full md:w-full rounded-2xl"
               slideMode="hover"
-              autoplay={true}
             />
           </div>
         </section>
