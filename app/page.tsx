@@ -1,33 +1,23 @@
 import Link from 'next/link'
-import { ArrowRight, ChevronRight, Sun, Leaf, Droplet } from 'lucide-react'
+import { ArrowRight, ChevronRight, Sun, Leaf, Droplet, Menu } from 'lucide-react'
 import { Compare } from '@/components/ui/compare'
 import HeroVideoDialog from '@/components/magicui/hero-video-dialog'
 import DotPattern from '@/components/magicui/dot-pattern'
 import { cn } from '@/lib/utils'
 import ShimmerButton from '@/components/magicui/shimmer-button'
+import { useEffect, useState } from 'react'
+import Navbar from '@/components/navbar'
 
 export default function LandingPage() {
+
+
   return (
-    <div className="min-h-screen bg-gradient-to-b px-16">
-      <header className="container mx-auto px-4 py-6 flex justify-between items-center fixed left-0 right-0 top-0 z-50 bg-white/80 backdrop-blur-md">
-        <div className="flex items-center space-x-2">
-          <Leaf className="h-8 w-8 text-green-600" />
-          <span className="text-2xl font-bold text-gray-900">ECO Gebutas</span>
-        </div>
-        <nav>
-          <ul className="flex space-x-8">
-            <li><Link href="#video" className="text-gray-600 hover:text-gray-900 transition-colors">Video</Link></li>
-            <li><Link href="#fitur" className="text-gray-600 hover:text-gray-900 transition-colors">Fitur</Link></li>
-            <li><Link href="#tentang" className="text-gray-600 hover:text-gray-900 transition-colors">Tentang</Link></li>
-            <li><Link href="#testimoni" className="text-gray-600 hover:text-gray-900 transition-colors">Testimoni</Link></li>
-            <li><Link href="/products" className="text-gray-600 hover:text-gray-900 transition-colors">Produk</Link></li>
-          </ul>
-        </nav>
-      </header>
+    <div className="min-h-screen bg-gradient-to-b md:px-16">
+      <Navbar />
 
       <main className="container mx-auto px-4">
-        <section className="text-center flex flex-col py-44">
-          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+        <section className="text-center flex flex-col py-44 -mt-11">
+          <h1 className="text-4xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
             Atap Masa Depan<br />untuk Bumi yang Lebih Hijau
           </h1>
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
@@ -54,20 +44,19 @@ export default function LandingPage() {
           />
         </section>
 
-        <section id="video" className="mb-32">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12">Lihat Cara Kerja Produk Kami</h2>
-          <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl">
+        <section id="video" className="-mt-32 md:px-24">
+          <div className="aspect-video rounded-2xl p-2 border border-zinc-300 overflow-hidden shadow-2xl shadow-green-300 h-fit">
               <HeroVideoDialog
-                className="dark:hidden block"
+                className="dark:hidden block rounded-xl w-full h-full"
                 animationStyle="from-center"
                 videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
                 thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
-                thumbnailAlt="Hero Video"
+                thumbnailAlt="Cara kerja panel surya"
               />
           </div>
         </section>
 
-        <section id="fitur" className="grid md:grid-cols-2 gap-16 items-center mb-32">
+        <section id="fitur" className="grid md:grid-cols-2 gap-16 items-center my-32">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Desain Inovatif Ramah Lingkungan</h2>
             <p className="text-gray-600 mb-8 text-lg leading-relaxed">
