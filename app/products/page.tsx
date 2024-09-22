@@ -64,7 +64,6 @@ export default function ProductShowcase() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white p-8">
-      <Navbar />
       <header className="mb-12 flex justify-between items-center">
         <h1 className="text-4xl font-bold text-green-800">ECO Gebutas Produk</h1>
         <Link href="/checkout" passHref>
