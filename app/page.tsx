@@ -108,7 +108,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section ref={addToRefs} id="fitur" className="py-24 mt-24 px-8 md:px-16">
+        <section ref={addToRefs} id="fitur" className="py-24 mt-24 px-2 md:px-16">
           <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-8">Desain Inovatif Ramah Lingkungan</h2>
@@ -156,13 +156,13 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 md:grid-cols-3 gap-8 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
             {[
               { icon: Sun, title: 'Energi Terbarukan', desc: 'Menghasilkan listrik dari sinar matahari' },
               { icon: Leaf, title: 'Ramah Lingkungan', desc: 'Mengurangi ketergantungan pada bahan bakar fosil' },
               { icon: Droplet, title: 'Tahan Cuaca', desc: 'Dirancang untuk bertahan dalam berbagai kondisi cuaca' }
             ].map((item, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl border border-neutral-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div key={index} className="min-w-[250px] bg-white p-8 rounded-xl border border-neutral-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 snap-center">
                 <item.icon className="h-16 w-16 text-green-600 mb-6 mx-auto" />
                 <h3 className="text-2xl font-semibold mb-4">{item.title}</h3>
                 <p className="text-neutral-600">{item.desc}</p>
