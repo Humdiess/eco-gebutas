@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowRight, ChevronRight, Sun, Leaf, Droplet, Menu } from 'lucide-react'
 import { Compare } from '@/components/ui/compare'
@@ -7,8 +9,28 @@ import { cn } from '@/lib/utils'
 import ShimmerButton from '@/components/magicui/shimmer-button'
 import { useEffect, useState } from 'react'
 import Navbar from '@/components/navbar'
+import Lenis from 'lenis'
 
 export default function LandingPage() {
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing
+      smoothWheel: true,
+    })
+
+    function raf(time: any) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+
+    return () => {
+      lenis.destroy() // Clean up on unmount
+    }
+  }, [])
 
 
   return (
