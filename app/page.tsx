@@ -17,7 +17,7 @@ export default function LandingPage() {
 
       <main className="container mx-auto px-4">
         <section className="text-center flex flex-col py-44 -mt-11">
-          <h1 className="text-4xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Atap Masa Depan<br />untuk Bumi yang Lebih Hijau
           </h1>
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
@@ -77,7 +77,13 @@ export default function LandingPage() {
               ))}
             </ul>
           </div>
-          <div className="bg-gradient-to-br from-green-100 to-green-200 rounded-2xl aspect-square flex items-center justify-center shadow-2xl transform hover:scale-105 transition-transform duration-300">
+          <div className="bg-gradient-to-br relative from-green-100 to-green-200 rounded-2xl aspect-square flex items-center justify-center shadow-2xl transform hover:scale-105 transition-transform duration-300">
+            <div className="product-label absolute top-2 left-2 bg-white px-2 py-1 rounded-md shadow-md z-[999]">
+              <p>Regular</p>
+            </div>
+            <div className="product-label absolute top-2 right-2 bg-white px-2 py-1 rounded-md shadow-md z-[999]">
+              <p>Solar panel</p>
+            </div>
             <Compare
               firstImage="/img/gebutas-standart.jpg"
               secondImage="/img/gebutas-solar.jpg"
@@ -87,6 +93,7 @@ export default function LandingPage() {
               slideMode="hover"
             />
           </div>
+
         </section>
 
         <section className="text-center mb-32">
@@ -101,7 +108,7 @@ export default function LandingPage() {
               { icon: Leaf, title: 'Ramah Lingkungan', desc: 'Mengurangi ketergantungan pada bahan bakar fosil' },
               { icon: Droplet, title: 'Tahan Cuaca', desc: 'Dirancang untuk bertahan dalam berbagai kondisi cuaca' }
             ].map((item, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div key={index} className="bg-white p-8 rounded-xl border border-neutral-300 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                 <item.icon className="h-16 w-16 text-green-600 mb-6 mx-auto" />
                 <h3 className="text-2xl font-semibold mb-4">{item.title}</h3>
                 <p className="text-gray-600">{item.desc}</p>
@@ -128,7 +135,7 @@ export default function LandingPage() {
               { name: 'Budi Santoso', role: 'Pemilik Rumah', quote: 'ECO Gebutas tidak hanya membuat rumah saya lebih hemat energi, tetapi juga meningkatkan nilai properti saya.' },
               { name: 'Siti Rahayu', role: 'Arsitek', quote: 'Sebagai arsitek, saya selalu mencari solusi berkelanjutan. ECO Gebutas adalah jawaban sempurna untuk proyek-proyek ramah lingkungan.' }
             ].map((testimonial, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div key={index} className="bg-white p-8 rounded-xl border border-neutral-300 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                 <p className="text-gray-600 mb-6 italic text-lg">"{testimonial.quote}"</p>
                 <div className="flex items-center">
                   <div className="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center mr-4">

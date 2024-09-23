@@ -30,7 +30,7 @@ const Navbar = () => {
     { href: "#fitur", label: "Fitur", icon: <Star className="h-6 w-6 block md:hidden" /> },
     { href: "#tentang", label: "Tentang", icon: <Info className="h-6 w-6 block md:hidden" /> },
     { href: "#testimoni", label: "Testimoni", icon: <MessageSquare className="h-6 w-6 block md:hidden" /> },
-    { href: "/products", label: "Produk", icon: <ShoppingCart className="h-6 w-6 block md:hidden" /> },
+    { href: "/products", label: "Beli", icon: <ShoppingCart className="h-6 w-6 block md:hidden" />, highlighted: true }, // Added highlighted flag
   ];
 
   return (
@@ -47,10 +47,16 @@ const Navbar = () => {
             <Image src="/img/gebutas-logo.png" alt="logo" width={40} height={40} />
           </div>
           <nav className="block">
-            <ul className="flex space-x-8">
+            <ul className="flex space-x-8 items-center">
               {navItems.map((item, index) => (
                 <li key={index} className="group">
-                  <Link href={item.href} className="text-gray-600 hover:text-gray-900 transition-colors flex flex-col items-center">
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      "text-gray-600 hover:text-gray-900 transition-colors flex flex-col items-center",
+                      item.highlighted ? "text-green-600 font-bold border border-green-600 rounded-lg px-4 py-2 bg-green-100" : "" // Highlight styles for Produk
+                    )}
+                  >
                     {item.icon}
                     <span className="nav-text hidden md:block">{item.label}</span>
                   </Link>
