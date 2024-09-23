@@ -103,7 +103,6 @@ export default function RootLayout({
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
-            © 2023 ECO Gebutas. Hak Cipta Dilindungi.
           </div>
         </div>
       </footer>

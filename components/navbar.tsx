@@ -29,7 +29,6 @@ const Navbar = () => {
     { href: "#video", label: "Video", icon: <Video className="h-6 w-6 block md:hidden" /> },
     { href: "#fitur", label: "Fitur", icon: <Star className="h-6 w-6 block md:hidden" /> },
     { href: "#tentang", label: "Tentang", icon: <Info className="h-6 w-6 block md:hidden" /> },
-    { href: "#testimoni", label: "Testimoni", icon: <MessageSquare className="h-6 w-6 block md:hidden" /> },
     { href: "/products", label: "Beli", icon: <ShoppingCart className="h-6 w-6 block md:hidden" />, highlighted: true }, // Added highlighted flag
   ];
 

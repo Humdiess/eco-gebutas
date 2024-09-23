@@ -180,9 +180,8 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div ref={kelebihanContainerRef} className="overflow-hidden">
+          <div className="overflow-hidden">
             <div 
-              ref={kelebihanRef}
               className="kelebihan flex gap-8 md:grid md:grid-cols-3"
             >
               {[
@@ -190,7 +189,7 @@ export default function LandingPage() {
                 { icon: Leaf, title: 'Ramah Lingkungan', desc: 'Mengurangi ketergantungan pada bahan bakar fosil' },
                 { icon: Droplet, title: 'Tahan Cuaca', desc: 'Dirancang untuk bertahan dalam berbagai kondisi cuaca' }
               ].map((item, index) => (
-                <div key={index} className="min-w-[280px] w-[80vw] md:w-auto flex-shrink-0 bg-white p-8 rounded-xl border border-neutral-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                <div key={index} className="min-w-[280px] w-[80vw] md:w-auto flex-shrink-0 bg-white p-8 rounded-xl border border-neutral-200 transition-all duration-300 transform">
                   <item.icon className="h-16 w-16 text-green-600 mb-6 mx-auto" />
                   <h3 className="text-2xl font-semibold mb-4">{item.title}</h3>
                   <p className="text-lg text-neutral-600">{item.desc}</p>
@@ -199,6 +198,45 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+
+        <section ref={addToRefs} id="about" className="py-24 mt-24 px-2 md:px-16">
+          <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-8">Tentang Proyek Ini</h2>
+              <p className="text-neutral-600 mb-8 text-lg leading-relaxed">
+                Menggabungkan kreativitas dan inovasi, proyek ini bertujuan untuk menyediakan solusi ramah lingkungan
+                yang memanfaatkan teknologi modern untuk menciptakan dampak positif bagi lingkungan.
+              </p>
+              <ul className="space-y-4">
+                {[
+                  'Berfokus pada inovasi hijau',
+                  'Didukung oleh teknologi terbaru',
+                  'Mendukung keberlanjutan lingkungan'
+                ].map((point, index) => (
+                  <li key={index} className="flex items-center text-neutral-700 text-lg">
+                    <ChevronRight className="h-6 w-6 text-green-500 mr-3" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-blue-100 to-blue-200 relative rounded-2xl aspect-square flex items-center justify-center shadow-lg transform hover:scale-105 transition-transform duration-300">
+              <DotPattern
+                width={40}
+                height={40}
+                cx={2}
+                cy={2}
+                cr={2}
+                className={cn(
+                  "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)]",
+                  "absolute left-4 top-4 opacity-40"
+                )}
+              />
+              <img src="/img/ecogebutas-image.png" alt="Our Team" className="w-full h-full object-cover rounded-2xl" />
+            </div>
+          </div>
+        </section>
+
       </main>
     </div>
   )
