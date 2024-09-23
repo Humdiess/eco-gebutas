@@ -11,11 +11,25 @@ interface StripeCheckoutProps {
   onError: () => void
 }
 
+/**
+ * Renders a Stripe checkout component, handling payment processing and error handling.
+ *
+ * @param {number} amount - The amount to be paid.
+ * @param {string | undefined} clientSecret - The client secret for the Stripe payment.
+ * @param {() => void} onSuccess - Callback function to be executed on successful payment.
+ * @param {() => void} onError - Callback function to be executed on payment error.
+ * @return {JSX.Element} The Stripe checkout component.
+ */
 export function StripeCheckout({ amount, clientSecret, onSuccess, onError }: StripeCheckoutProps) {
   const stripe = useStripe()
   const elements = useElements()
   const [loading, setLoading] = useState(false)
 
+  /**
+   * Handles the submission of the payment form, processing the payment and handling any errors that may occur.
+   *
+   * @return {Promise<void>} A promise that resolves when the payment processing is complete.
+   */
   const handleSubmit = async () => {
     setLoading(true)
     

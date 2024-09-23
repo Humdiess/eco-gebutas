@@ -125,8 +125,8 @@ export default function LandingPage() {
             <HeroVideoDialog
               className="dark:hidden block rounded-xl w-full h-full"
               animationStyle="from-center"
-              videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
-              thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+              videoSrc="video/ecogebutas-video.mp4"
+              thumbnailSrc="img/ecogebutas-thumbnail.png"
               thumbnailAlt="Cara kerja panel surya"
             />
           </div>
