@@ -108,7 +108,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section ref={addToRefs} id="fitur" className="py-24 mt-24 px-16">
+        <section ref={addToRefs} id="fitur" className="py-24 mt-24 px-8 md:px-16">
           <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-8">Desain Inovatif Ramah Lingkungan</h2>
@@ -148,15 +148,15 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="text-center mb-16 px-16">
+          <div className="text-center mb-16 px-2 md:px-16">
             <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-8">Manfaatkan Kekuatan Matahari</h2>
-            <p className="text-xl text-neutral-600 mb-16 max-w-3xl mx-auto">
+            <p className="text-xl text-neutral-600 mb-16 md:max-w-3xl mx-auto">
               Varian terintegrasi panel surya kami membawa atap ramah lingkungan ke level berikutnya,
               menghasilkan energi bersih untuk rumah Anda.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid-cols-3 gap-8">
             {[
               { icon: Sun, title: 'Energi Terbarukan', desc: 'Menghasilkan listrik dari sinar matahari' },
               { icon: Leaf, title: 'Ramah Lingkungan', desc: 'Mengurangi ketergantungan pada bahan bakar fosil' },
@@ -173,47 +173,47 @@ export default function LandingPage() {
 
         {/* section tentang-start */}
         <section ref={addToRefs} id="tentang" className="py-24 px-4 md:px-16 bg-gradient-to-br from-green-50 to-blue-50 rounded-3xl my-24">
-  <div className="max-w-6xl mx-auto">
-    <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-8 text-center">Tentang ECO Gebutas</h2>
-    <div className="grid md:grid-cols-2 gap-12 items-center">
-      <div className="space-y-6">
-        <p className="text-lg text-neutral-700 leading-relaxed">
-          ECO Gebutas adalah pelopor dalam industri atap ramah lingkungan, menggabungkan inovasi dengan keberlanjutan. Kami berkomitmen untuk menciptakan solusi atap yang tidak hanya melindungi rumah Anda, tetapi juga berkontribusi positif terhadap lingkungan.
-        </p>
-        <p className="text-lg text-neutral-700 leading-relaxed">
-          Dengan menggunakan bahan-bahan terbarukan dan teknologi panel surya canggih, kami memberdayakan pemilik rumah untuk mengurangi jejak karbon mereka sambil menikmati manfaat dari energi bersih yang dihasilkan.
-        </p>
-        <div className="pt-4">
-          <Link href="/about" className="inline-flex items-center text-green-600 hover:text-green-700 font-semibold transition-colors duration-300">
-            Pelajari lebih lanjut tentang misi kami
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </div>
-      </div>
-      <div className="relative">
-        <div className="aspect-square bg-white rounded-2xl overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-300">
-          <img
-            src="/img/gebutas-logo.png"
-            alt="Tim ECO Gebutas"
-            className="object-cover w-full h-full"
-          />
-        </div>
-        <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
-          <div className="flex items-center space-x-2">
-            <Leaf className="h-6 w-6 text-green-500" />
-            <span className="text-neutral-900 font-semibold">100% Ramah Lingkungan</span>
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-8 text-center">Tentang ECO Gebutas</h2>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <p className="text-lg text-neutral-700 leading-relaxed">
+                  ECO Gebutas adalah pelopor dalam industri atap ramah lingkungan, menggabungkan inovasi dengan keberlanjutan. Kami berkomitmen untuk menciptakan solusi atap yang tidak hanya melindungi rumah Anda, tetapi juga berkontribusi positif terhadap lingkungan.
+                </p>
+                <p className="text-lg text-neutral-700 leading-relaxed">
+                  Dengan menggunakan bahan-bahan terbarukan dan teknologi panel surya canggih, kami memberdayakan pemilik rumah untuk mengurangi jejak karbon mereka sambil menikmati manfaat dari energi bersih yang dihasilkan.
+                </p>
+                <div className="pt-4">
+                  <Link href="/about" className="inline-flex items-center text-green-600 hover:text-green-700 font-semibold transition-colors duration-300">
+                    Pelajari lebih lanjut tentang misi kami
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </div>
+              </div>
+              <div className="relative">
+                <div className="aspect-square bg-white rounded-2xl overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-300">
+                  <img
+                    src="/img/gebutas-logo.png"
+                    alt="Tim ECO Gebutas"
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
+                  <div className="flex items-center space-x-2">
+                    <Leaf className="h-6 w-6 text-green-500" />
+                    <span className="text-neutral-900 font-semibold">100% Ramah Lingkungan</span>
+                  </div>
+                </div>
+                <div className="absolute -top-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
+                  <div className="flex items-center space-x-2">
+                    <Sun className="h-6 w-6 text-yellow-500" />
+                    <span className="text-neutral-900 font-semibold">Energi Surya Terintegrasi</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="absolute -top-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
-          <div className="flex items-center space-x-2">
-            <Sun className="h-6 w-6 text-yellow-500" />
-            <span className="text-neutral-900 font-semibold">Energi Surya Terintegrasi</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        </section>
 
         {/* section tentang-end */}
 
