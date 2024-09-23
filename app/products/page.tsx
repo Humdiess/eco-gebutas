@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ShoppingCart, Plus, Minus } from 'lucide-react'
+import { ShoppingCart, Plus, Minus, ChevronLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -63,9 +63,19 @@ export default function ProductShowcase() {
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0)
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white p-8">
+    <div className="min-h-screen p-8">
       <header className="mb-12 flex justify-between items-center">
-        <h1 className="text-4xl font-bold text-green-800">ECO Gebutas Produk</h1>
+        {/* back button */}
+        <div className="left-nav flex items-center gap-4">
+          <Link href="/" passHref>
+            <Button variant="ghost" className="relative">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <ChevronLeft />
+              </div>
+            </Button>
+          </Link>
+          <h1 className="text-4xl font-bold text-green-800">ECO Gebutas Produk</h1>
+        </div>
         <Link href="/checkout" passHref>
           <Button variant="outline" className="relative">
             <ShoppingCart className="mr-2 h-5 w-5" />
