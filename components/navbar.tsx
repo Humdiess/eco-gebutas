@@ -43,7 +43,7 @@ const Navbar = () => {
         style={{ width: 'fit-content' }} // Fit-content width
       >
         <div className="bg-white/80 backdrop-blur-md rounded-2xl border border-zinc-300 p-3 flex justify-between items-center gap-8">
-          <div className="flex items-center space-x-2">
+          <div className="hidden md:block">
             <Image src="/img/gebutas-logo.png" alt="logo" width={40} height={40} />
           </div>
           <nav className="block">
