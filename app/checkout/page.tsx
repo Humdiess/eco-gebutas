@@ -17,13 +17,13 @@ const products = [
   {
     id: 1,
     name: 'ECO Gebutas Standard',
-    price: 150000,
+    price: 18000,
     image: '/img/gebutas-standart.jpg'
   },
   {
     id: 2,
     name: 'ECO Gebutas Solar',
-    price: 500000,
+    price: 80000,
     image: '/img/gebutas-solar.jpg'
   },
 ]
