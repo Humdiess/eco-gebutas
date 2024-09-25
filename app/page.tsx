@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { ArrowRight, ChevronRight, Sun, Leaf, Droplet } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowRight, ChevronRight, Sun, Leaf, Droplet, Star } from 'lucide-react'
 import { Compare } from '@/components/ui/compare'
 import HeroVideoDialog from '@/components/magicui/hero-video-dialog'
 import DotPattern from '@/components/magicui/dot-pattern'
@@ -199,7 +200,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section ref={addToRefs} id="about" className="py-24 mt-24 px-2 md:px-16">
+        <section ref={addToRefs} id="tentang" className="py-24 mt-24 px-2 md:px-16">
           <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-8">Tentang Proyek Ini</h2>
@@ -234,6 +235,55 @@ export default function LandingPage() {
               />
               <img src="/img/ecogebutas-image.png" alt="Our Team" className="w-full h-full object-cover rounded-2xl" />
             </div>
+          </div>
+        </section>
+
+        <section ref={addToRefs} id="testimonials" className="py-24 mt-24 px-2 md:px-16 bg-gray-50">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-8">Apa Kata Mereka</h2>
+            <p className="text-xl text-neutral-600 mb-16 md:max-w-3xl mx-auto">
+              Dengarkan pengalaman langsung dari pelanggan kami yang telah merasakan manfaat ECOGEBUTAS.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Budi Santoso",
+                role: "Pemilik Rumah",
+                comment: "ECOGEBUTAS benar-benar mengubah rumah saya. Tagihan listrik turun drastis dan saya bangga berkontribusi pada lingkungan.",
+                rating: 5,
+              },
+              {
+                name: "Siti Rahayu",
+                role: "Arsitek",
+                comment: "Sebagai arsitek, saya selalu mencari solusi inovatif dan ramah lingkungan. ECOGEBUTAS adalah jawaban sempurna untuk proyek-proyek saya.",
+                rating: 5,
+              },
+              {
+                name: "Agus Wijaya",
+                role: "Pengembang Perumahan",
+                comment: "Menggunakan ECOGEBUTAS di proyek perumahan kami telah meningkatkan nilai jual dan kepuasan pelanggan. Produk luar biasa!",
+                rating: 5,
+              }
+            ].map((testimonial, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-md">
+                <div className="flex items-center mb-4">
+                  <div className="w-10 h-10 rounded-full bg-yellow-400 mr-4">
+
+                  </div>
+                  <div>
+                    <p className="font-semibold">{testimonial.name}</p>
+                    <p className="text-sm text-neutral-500">{testimonial.role}</p>
+                  </div>
+                </div>
+                <div className="flex items-center mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-neutral-600 mb-4">{testimonial.comment}</p>
+              </div>
+            ))}
           </div>
         </section>
 
