@@ -238,7 +238,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section ref={addToRefs} id="testimonials" className="py-24 mt-24 px-2 md:px-16 bg-gray-50">
+        <section ref={addToRefs} id="testi" className="py-24 mt-24 px-2 md:px-16 bg-gray-50">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-8">Apa Kata Mereka</h2>
             <p className="text-xl text-neutral-600 mb-16 md:max-w-3xl mx-auto">
