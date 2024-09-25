@@ -94,7 +94,7 @@ export default function LandingPage() {
       <main>
         <section ref={addToRefs} className="text-center flex flex-col py-44 -mt-11">
           <h1 className="text-4xl md:text-6xl font-bold text-neutral-900 mb-6 leading-tight">
-            Atap Masa Depan<br />untuk Bumi yang Lebih Hijau
+            ECOGEBUTAS : Genteng Masa Depan<br />untuk Bumi yang Lebih Hijau
           </h1>
           <p className="text-xl text-neutral-600 mb-12 max-w-3xl mx-auto px-4">
             ECO Gebutas menggabungkan bahan ramah lingkungan dengan teknologi panel surya terintegrasi
