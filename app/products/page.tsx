@@ -15,14 +15,14 @@ const products = [
     id: 1,
     name: 'ECO Gebutas Standard',
     description: 'Genteng ramah lingkungan dari tebu dan kertas daur ulang',
-    price: 18000,
+    price: 3000,
     image: '/img/gebutas-standart.jpg'
   },
   {
     id: 2,
     name: 'ECO Gebutas Solar',
     description: 'Genteng ramah lingkungan dengan panel surya terintegrasi',
-    price: 80000,
+    price: 25000,
     image: '/img/gebutas-solar.jpg'
   },
   // Add more products as needed
